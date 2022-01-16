@@ -12,8 +12,7 @@
 
 
     ReactNative: Native Voice Recorder (Android/iOS)
-
-Due to time constraint, this library is deprecated and not maintained anymore, You can still use this library.
+This version is fixed for latest versions of Android by TrustDev.
 
 If this project has helped you out, please support us with a star 🌟
 </h1>

@@ -12,6 +12,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,6 +93,7 @@ public class AudioPlayActivity extends AppCompatActivity
             autoStart = getIntent().getBooleanExtra(AudioPlay.EXTRA_AUTO_START, false);
             keepDisplayOn = getIntent().getBooleanExtra(AudioPlay.EXTRA_KEEP_DISPLAY_ON, false);
         }
+        filePath = (new File(getFilesDir(),"recorded_audio.wav")).getPath(); // fixed for android 11+
 
         if(keepDisplayOn){
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

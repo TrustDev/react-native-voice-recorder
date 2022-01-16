@@ -63,8 +63,8 @@ public class RNVoiceRecorderModule extends ReactContextBaseJavaModule {
             ).withListener(new MultiplePermissionsListener() {
       @Override public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */
 
-        String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
-
+        //String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
+        String filePath = (new File(getReactApplicationContext().getFilesDir(),"recorded_audio.wav")).getPath(); //fixed for android 11+
         int color = Color.parseColor("#165297");
 
         int requestCode = 0;
@@ -135,8 +135,9 @@ public class RNVoiceRecorderModule extends ReactContextBaseJavaModule {
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
 
       if (resultCode == AppCompatActivity.RESULT_OK) {
-        String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
-        
+        //String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
+        String filePath = (new File(getReactApplicationContext().getFilesDir(),"recorded_audio.wav")).getPath(); // fixed for android 11+
+
         if (_onDone != null) {
           _onDone.invoke(filePath);
         }
